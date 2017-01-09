@@ -4,10 +4,10 @@ import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 /**
  * @name 			s-google-map-marker
  * Display a simple google map with a simple marker
- * @styleguide  	Components / s-google-map
+ * @styleguide  	Components / s-google-map-marker
  * @example 		html
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
- * 	<s-google-map-marger position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
+ * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
  * </s-google-map>
  */
 
