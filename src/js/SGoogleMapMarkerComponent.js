@@ -2,8 +2,8 @@ import SGoogleMapComponentBase from 'coffeekraken-s-google-map-component-base'
 import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 
 /**
- * @name 			s-google-map
- * Display a simple google map
+ * @name 			s-google-map-marker
+ * Display a simple google map with a simple marker
  * @styleguide  	Components / s-google-map
  * @example 		html
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
