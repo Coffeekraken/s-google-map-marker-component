@@ -1,4 +1,5 @@
 import SGoogleMapComponentBase from 'coffeekraken-s-google-map-component-base'
+import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 
 export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 

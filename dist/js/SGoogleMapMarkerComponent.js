@@ -10,6 +10,10 @@ var _coffeekrakenSGoogleMapComponentBase = require('coffeekraken-s-google-map-co
 
 var _coffeekrakenSGoogleMapComponentBase2 = _interopRequireDefault(_coffeekrakenSGoogleMapComponentBase);
 
+var _whenAttribute = require('coffeekraken-sugar/js/dom/whenAttribute');
+
+var _whenAttribute2 = _interopRequireDefault(_whenAttribute);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -141,7 +145,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		key: 'mountDependencies',
 		get: function get() {
 			return [function () {
-				return __whenAttribute(this.parentNode, 'inited');
+				return (0, _whenAttribute2.default)(this.parentNode, 'inited');
 			}];
 		}
 
