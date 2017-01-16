@@ -27,7 +27,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * Display a simple google map with a simple marker
  * @styleguide  	Components / Google Map
  * @example 		html
- * <s-google-map center="{lat: -25.363, lng: 131.044}">
+ * <s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
  * </s-google-map>
  * @see 			https://github.com/Coffeekraken/s-google-map-marker-component
