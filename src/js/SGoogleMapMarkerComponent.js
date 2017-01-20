@@ -2,6 +2,20 @@ import SGoogleMapComponentBase from 'coffeekraken-s-google-map-component-base'
 import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 
 /**
+ * @class 	SGoogleMapMarkerComponent 	SGoogleMapComponentBase
+ * Provide a nice webcomponent wrapper around the google map marker api.
+ * @example 	html
+ * <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
+ * 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+ * 	</s-google-map-marker>
+ * </s-google-map>
+ * @see 	https://www.npmjs.com/package/google-maps
+ * @see 	https://developers.google.com/maps/documentation/javascript/
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+
+/**
  * @name 			Google Map Marker
  * Display a simple google map with a simple marker
  * @styleguide  	Components / Google Map
@@ -9,7 +23,7 @@ import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
  * <s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
  * </s-google-map>
- * @see 			https://github.com/Coffeekraken/s-google-map-marker-component
+ * @see 			https://github.com/Coffeekraken/s-google-map-marker-component/tree/release/{version}
  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
  */
 
@@ -18,6 +32,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Default props
 	 * @definition 		SWebComponent.defaultProps
+	 * @protected
 	 */
 	static get defaultProps() {
 		return {};
@@ -26,6 +41,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Mount dependencies
 	 * @definition 		SWebComponent.mountDependencies
+	 * @protected
 	 */
 	static get mountDependencies() {
 		return [function() {
@@ -36,6 +52,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Physical props
 	 * @definition 		SWebComponent.physicalProps
+	 * @protected
 	 */
 	static get physicalProps() {
 		return [];
@@ -44,6 +61,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Component will mount
 	 * @definition 		SWebComponent.componentWillMount
+	 * @protected
 	 */
 	componentWillMount() {
 		super.componentWillMount();
@@ -52,6 +70,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Mount component
 	 * @definition 		SWebComponent.componentMount
+	 * @protected
 	 */
 	componentMount() {
 		super.componentMount();
@@ -74,6 +93,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Component unmount
 	 * @definition 		SWebComponent.componentUnmount
+	 * @protected
 	 */
 	componentUnmount() {
 		super.componentUnmount();
@@ -82,6 +102,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	/**
 	 * Component will receive props
 	 * @definition 		SWebComponent.componentWillReceiveProps
+	 * @protected
 	 */
 	componentWillReceiveProps(nextProps, previousProps) {
 		if ( ! this._marker) return;
@@ -92,6 +113,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 * Render the component
 	 * Here goes the code that reflect the this.props state on the actual html element
 	 * @definition 		SWebComponent.render
+	 * @protected
 	 */
 	render() {
 		super.render();
@@ -107,10 +129,18 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 
 	/**
 	 * Access the google map instance
-	 * @return 	{Map} 	The google map instance
+	 * @type 	{Google.Map}
 	 */
 	get map() {
 		return this.parentNode.map;
+	}
+
+	/**
+	 * Access the google map marker instance
+	 * @type 	{Google.Map.Marker}
+	 */
+	get marker() {
+		return this._marker;
 	}
 }
 
