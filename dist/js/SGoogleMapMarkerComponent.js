@@ -23,14 +23,27 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
+ * @class 	SGoogleMapMarkerComponent 	SGoogleMapComponentBase
+ * Provide a nice webcomponent wrapper around the google map marker api.
+ * @example 	html
+ * <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
+ * 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+ * 	</s-google-map-marker>
+ * </s-google-map>
+ * @see 	https://www.npmjs.com/package/google-maps
+ * @see 	https://developers.google.com/maps/documentation/javascript/
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+
+/**
  * @name 			Google Map Marker
  * Display a simple google map with a simple marker
- * @styleguide  	Components / Google Map
+ * @styleguide  	Objects / Google Map
  * @example 		html
  * <s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
  * </s-google-map>
- * @see 			https://github.com/Coffeekraken/s-google-map-marker-component
+ * @see 			https://github.com/Coffeekraken/s-google-map-marker-component/tree/release/{version}
  * @author 			Olivier Bossel <olivier.bossel@gmail.com>
  */
 
@@ -50,6 +63,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Component will mount
    * @definition 		SWebComponent.componentWillMount
+   * @protected
    */
 		value: function componentWillMount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentWillMount', this).call(this);
@@ -58,6 +72,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Mount component
    * @definition 		SWebComponent.componentMount
+   * @protected
    */
 
 	}, {
@@ -83,6 +98,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Component unmount
    * @definition 		SWebComponent.componentUnmount
+   * @protected
    */
 
 	}, {
@@ -94,6 +110,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Component will receive props
    * @definition 		SWebComponent.componentWillReceiveProps
+   * @protected
    */
 
 	}, {
@@ -107,6 +124,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
    * Render the component
    * Here goes the code that reflect the this.props state on the actual html element
    * @definition 		SWebComponent.render
+   * @protected
    */
 
 	}, {
@@ -128,13 +146,24 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 
 		/**
    * Access the google map instance
-   * @return 	{Map} 	The google map instance
+   * @type 	{Google.Map}
    */
 
 	}, {
 		key: 'map',
 		get: function get() {
 			return this.parentNode.map;
+		}
+
+		/**
+   * Access the google map marker instance
+   * @type 	{Google.Map.Marker}
+   */
+
+	}, {
+		key: 'marker',
+		get: function get() {
+			return this._marker;
 		}
 	}], [{
 		key: 'defaultProps',
@@ -143,6 +172,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Default props
    * @definition 		SWebComponent.defaultProps
+   * @protected
    */
 		get: function get() {
 			return {};
@@ -151,6 +181,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Mount dependencies
    * @definition 		SWebComponent.mountDependencies
+   * @protected
    */
 
 	}, {
@@ -164,6 +195,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		/**
    * Physical props
    * @definition 		SWebComponent.physicalProps
+   * @protected
    */
 
 	}, {

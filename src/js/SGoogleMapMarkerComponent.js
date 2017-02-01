@@ -18,7 +18,7 @@ import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 /**
  * @name 			Google Map Marker
  * Display a simple google map with a simple marker
- * @styleguide  	Components / Google Map
+ * @styleguide  	Objects / Google Map
  * @example 		html
  * <s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>

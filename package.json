@@ -15,7 +15,7 @@
 		"demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
 		"demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
     "doc": "rm -rf doc && npm run doc.js",
-"doc.js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc --remove-path src/",
+    "doc.js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc --remove-path src/",
     "test": "node_modules/coffeekraken-testing-stack/run"
 	},
 	"keywords": [
