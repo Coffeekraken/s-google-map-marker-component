@@ -1,7 +1,11 @@
-# SGoogleMapMarkerComponent  extends SGoogleMapComponentBase
+# SGoogleMapMarkerComponent
+
+Extends **SGoogleMapComponentBase**
+
 Provide a nice webcomponent wrapper around the google map marker api.
 
-#### Example
+
+### Example
 ```html
 	<s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
@@ -14,24 +18,18 @@ Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
 
-## Examples
 
-Here's some usage examples.
+## Attributes
 
-### Google Map Marker
+Here's the list of available attribute to set on the element.
 
-Display a simple google map with a simple marker
+### Google Map Marker API
 
-#### Example
-```html
-	<s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
-	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
-</s-google-map>
-```
-See more : [https://github.com/Coffeekraken/s-google-map-marker-component/tree/release/0.0.1](https://github.com/Coffeekraken/s-google-map-marker-component/tree/release/0.0.1)
+Support all the google map marker API properties
 
-Author : Olivier Bossel <olivier.bossel@gmail.com>
+Type : **{ Google.Map.Marker }**
 
+Google Map Marker Options : [https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions](https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions)
 
 
 

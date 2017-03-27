@@ -2,8 +2,11 @@ import SGoogleMapComponentBase from 'coffeekraken-s-google-map-component-base'
 import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
 
 /**
- * @class 	SGoogleMapMarkerComponent 	SGoogleMapComponentBase
+ * @name 		SGoogleMapMarkerComponent
+ * @extends 	SGoogleMapComponentBase
  * Provide a nice webcomponent wrapper around the google map marker api.
+ *
+ * @styleguide  	Objects / Google Map
  * @example 	html
  * <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
  * 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
@@ -14,19 +17,6 @@ import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  */
 
-
-/**
- * @name 			Google Map Marker
- * Display a simple google map with a simple marker
- * @styleguide  	Objects / Google Map
- * @example 		html
- * <s-google-map center="{lat: -25.363, lng: 131.044}" scrollwheel="false">
- * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}"></s-google-map-marker>
- * </s-google-map>
- * @see 			https://github.com/Coffeekraken/s-google-map-marker-component/tree/release/{version}
- * @author 			Olivier Bossel <olivier.bossel@gmail.com>
- */
-
 export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 
 	/**
@@ -35,7 +25,17 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 * @protected
 	 */
 	static get defaultProps() {
-		return {};
+		return {
+
+			/**
+			 * @name 	Google Map Marker API
+			 * Support all the google map marker API properties
+			 * @prop
+			 * @type 	{Google.Map.Marker}
+			 * @see 	https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions 	Google Map Marker Options
+			 */
+
+		};
 	}
 
 	/**
@@ -56,6 +56,15 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 */
 	static get physicalProps() {
 		return [];
+	}
+
+	/**
+	 * Should accept component props
+	 * @definition 		SWebComponent.shouldAcceptComponentProp
+	 * @protected
+	 */
+	shouldAcceptComponentProp(prop) {
+		return true;
 	}
 
 	/**
@@ -143,13 +152,3 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 		return this._marker;
 	}
 }
-
-// // STemplate integration
-// sTemplateIntegrator.registerComponentIntegration(SGoogleMapMarkerComponent, (component) => {
-// 	if (component._mapElm) {
-// 		sTemplateIntegrator.ignore(component._mapElm);
-// 	}
-// 	if (component._placeholder) {
-// 		sTemplateIntegrator.ignore(component._placeholder);
-// 	}
-// });
