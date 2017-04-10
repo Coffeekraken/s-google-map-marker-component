@@ -1,5 +1,6 @@
 import "babel-polyfill";
 import "webcomponents.js/webcomponents-lite";
+import SGoogleMapComponent from 'coffeekraken-s-google-map-component'
 import SGoogleMapMarkerComponent from '../dist/index';
 import { expect } from 'chai'
 import testingStack from 'coffeekraken-testing-stack';

@@ -178,7 +178,17 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
    * @protected
    */
 		get: function get() {
-			return {};
+			return {
+
+				/**
+     * @name 	Google Map Marker API
+     * Support all the google map marker API properties
+     * @prop
+     * @type 	{Google.Map.Marker}
+     * @see 	https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions 	Google Map Marker Options
+     */
+
+			};
 		}
 
 		/**
