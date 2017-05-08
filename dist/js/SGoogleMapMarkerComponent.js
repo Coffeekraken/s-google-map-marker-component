@@ -145,6 +145,9 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		value: function _initMarker() {
 			this._marker = new this._google.maps.Marker(this.props);
 			this._marker.setMap(this.map);
+			// set the component as inited
+			// used by the markers to init when the map is ok
+			this.setAttribute('inited', true);
 		}
 
 		/**
