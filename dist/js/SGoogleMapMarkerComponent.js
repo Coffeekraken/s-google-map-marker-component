@@ -95,6 +95,8 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 				this._initMarker();
 			} else {
 				this._marker.setMap(this.map);
+				// dispatch an event to notify the new marker
+				this.dispatchComponentEvent('new-google-map-marker', this._marker);
 			}
 		}
 
@@ -108,6 +110,8 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		key: 'componentUnmount',
 		value: function componentUnmount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentUnmount', this).call(this);
+			// dispatch an event to notify the new marker
+			this.dispatchComponentEvent('remove-google-map-marker', this._marker);
 		}
 
 		/**
