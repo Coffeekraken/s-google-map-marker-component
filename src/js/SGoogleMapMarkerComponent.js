@@ -96,9 +96,10 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 			this._initMarker();
 		} else {
 			this._marker.setMap(this.map);
-			// dispatch an event to notify the new marker
-			this.dispatchComponentEvent('new-google-map-marker', this._marker);
 		}
+
+		// dispatch an event to notify the new marker
+		this.dispatchComponentEvent('new-google-map-marker', this._marker);
 	}
 
 	/**
