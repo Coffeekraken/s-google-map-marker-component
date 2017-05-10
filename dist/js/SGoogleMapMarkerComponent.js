@@ -114,6 +114,10 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		key: 'componentUnmount',
 		value: function componentUnmount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentUnmount', this).call(this);
+			// remove the marker from the map
+			if (this._marker) {
+				this._marker.setMap(null);
+			}
 			// dispatch an event to notify the new marker
 			this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 		}

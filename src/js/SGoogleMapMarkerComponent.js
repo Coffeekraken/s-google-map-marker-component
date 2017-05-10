@@ -112,6 +112,10 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 */
 	componentUnmount() {
 		super.componentUnmount();
+		// remove the marker from the map
+		if (this._marker) {
+			this._marker.setMap(null);
+		}
 		// dispatch an event to notify the new marker
 		this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 	}
