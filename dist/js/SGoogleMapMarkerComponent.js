@@ -83,6 +83,9 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		value: function componentMount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentMount', this).call(this);
 
+			// save reference to the parent node to dispatch an event when unmounted
+			this._parentNode = this.parentNode;
+
 			// get the map instance to use for this marker.
 			// this is grabed from the parent node that need to be a google-map component
 			if (!this.map) {
@@ -112,7 +115,7 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		value: function componentUnmount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentUnmount', this).call(this);
 			// dispatch an event to notify the new marker
-			this.dispatchComponentEvent('remove-google-map-marker', this._marker);
+			this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 		}
 
 		/**

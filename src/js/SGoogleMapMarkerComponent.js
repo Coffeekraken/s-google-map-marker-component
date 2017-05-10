@@ -84,6 +84,9 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	componentMount() {
 		super.componentMount();
 
+		// save reference to the parent node to dispatch an event when unmounted
+		this._parentNode = this.parentNode;
+
 		// get the map instance to use for this marker.
 		// this is grabed from the parent node that need to be a google-map component
 		if ( ! this.map) {
@@ -110,7 +113,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	componentUnmount() {
 		super.componentUnmount();
 		// dispatch an event to notify the new marker
-		this.dispatchComponentEvent('remove-google-map-marker', this._marker);
+		this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 	}
 
 	/**
