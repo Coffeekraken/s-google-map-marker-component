@@ -27,7 +27,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @extends 	SGoogleMapComponentBase
  * Provide a nice webcomponent wrapper around the google map marker api.
  *
- * @styleguide  	Objects / Google Map
  * @example 	html
  * <s-google-map center="{lat: -25.363, lng: 131.044}">
  * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
