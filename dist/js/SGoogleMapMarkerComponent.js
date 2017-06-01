@@ -27,10 +27,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @extends 	SGoogleMapComponentBase
  * Provide a nice webcomponent wrapper around the google map marker api.
  *
- * @styleguide  	Objects / Google Map
  * @example 	html
- * <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
- * 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+ * <s-google-map center="{lat: -25.363, lng: 131.044}">
+ * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
  * 	</s-google-map-marker>
  * </s-google-map>
  * @see 	https://www.npmjs.com/package/google-maps
@@ -83,6 +82,9 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		value: function componentMount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentMount', this).call(this);
 
+			// save reference to the parent node to dispatch an event when unmounted
+			this._parentNode = this.parentNode;
+
 			// get the map instance to use for this marker.
 			// this is grabed from the parent node that need to be a google-map component
 			if (!this.map) {
@@ -95,9 +97,10 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 				this._initMarker();
 			} else {
 				this._marker.setMap(this.map);
-				// dispatch an event to notify the new marker
-				this.dispatchComponentEvent('new-google-map-marker', this._marker);
 			}
+
+			// dispatch an event to notify the new marker
+			this.dispatchComponentEvent('new-google-map-marker', this._marker);
 		}
 
 		/**
@@ -110,8 +113,12 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 		key: 'componentUnmount',
 		value: function componentUnmount() {
 			_get(SGoogleMapMarkerComponent.prototype.__proto__ || Object.getPrototypeOf(SGoogleMapMarkerComponent.prototype), 'componentUnmount', this).call(this);
+			// remove the marker from the map
+			if (this._marker) {
+				this._marker.setMap(null);
+			}
 			// dispatch an event to notify the new marker
-			this.dispatchComponentEvent('remove-google-map-marker', this._marker);
+			this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 		}
 
 		/**
@@ -147,8 +154,11 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 	}, {
 		key: '_initMarker',
 		value: function _initMarker() {
-			this._marker = new this._google.maps.Marker(this.props);
+			this._marker = new this.google.maps.Marker(this.props);
 			this._marker.setMap(this.map);
+			// set the component as inited
+			// used by the markers to init when the map is ok
+			this.setAttribute('inited', true);
 		}
 
 		/**

@@ -7,8 +7,8 @@ Provide a nice webcomponent wrapper around the google map marker api.
 
 ### Example
 ```html
-	<s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
-	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+	<s-google-map center="{lat: -25.363, lng: 131.044}">
+	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
 	</s-google-map-marker>
 </s-google-map>
 ```
