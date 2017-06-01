@@ -6,10 +6,9 @@ import __whenAttribute from 'coffeekraken-sugar/js/dom/whenAttribute'
  * @extends 	SGoogleMapComponentBase
  * Provide a nice webcomponent wrapper around the google map marker api.
  *
- * @styleguide  	Objects / Google Map
  * @example 	html
- * <s-google-map api-key="..." center="{lat: -25.363, lng: 131.044}">
- * 	<s-google-map-marker api-key="..." position="{lat: -25.363, lng: 131.044}">
+ * <s-google-map center="{lat: -25.363, lng: 131.044}">
+ * 	<s-google-map-marker position="{lat: -25.363, lng: 131.044}">
  * 	</s-google-map-marker>
  * </s-google-map>
  * @see 	https://www.npmjs.com/package/google-maps
@@ -84,6 +83,9 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	componentMount() {
 		super.componentMount();
 
+		// save reference to the parent node to dispatch an event when unmounted
+		this._parentNode = this.parentNode;
+
 		// get the map instance to use for this marker.
 		// this is grabed from the parent node that need to be a google-map component
 		if ( ! this.map) {
@@ -97,6 +99,9 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 		} else {
 			this._marker.setMap(this.map);
 		}
+
+		// dispatch an event to notify the new marker
+		this.dispatchComponentEvent('new-google-map-marker', this._marker);
 	}
 
 	/**
@@ -106,6 +111,12 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 */
 	componentUnmount() {
 		super.componentUnmount();
+		// remove the marker from the map
+		if (this._marker) {
+			this._marker.setMap(null);
+		}
+		// dispatch an event to notify the new marker
+		this.dispatchComponentEvent('remove-google-map-marker', this._marker, this._parentNode);
 	}
 
 	/**
@@ -132,7 +143,7 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	 * Init the marker
 	 */
 	_initMarker() {
-		this._marker = new this._google.maps.Marker(this.props);
+		this._marker = new this.google.maps.Marker(this.props);
 		this._marker.setMap(this.map);
 		// set the component as inited
 		// used by the markers to init when the map is ok
