@@ -1,6 +1,6 @@
 {
 	"name": "coffeekraken-s-google-map-marker-component",
-	"version": "0.0.3",
+	"version": "1.0.0",
 	"description": "Provide a simple, declarative and powerful webcomponent wrapper to create google map markers inside an s-google-map component.",
 	"main": "dist/index.js",
   "homepage": "http://coffeekraken.io",
@@ -47,9 +47,9 @@
   }],
 	"license": "MIT",
 	"dependencies": {
-		"coffeekraken-sugar": "^0.0.3",
-		"coffeekraken-s-google-map-component": "^0.0.3",
-		"coffeekraken-s-google-map-component-base": "^0.0.2"
+		"coffeekraken-sugar": "^1.0.0",
+		"coffeekraken-s-google-map-component": "^1.0.0",
+		"coffeekraken-s-google-map-component-base": "^1.0.0"
 	},
 	"devDependencies": {
     "babel-cli": "^6.18.0",
