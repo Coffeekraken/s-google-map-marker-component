@@ -59,10 +59,10 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 
 	/**
 	 * Should accept component props
-	 * @definition 		SWebComponent.shouldAcceptComponentProp
+	 * @definition 		SWebComponent.shouldComponentAcceptProp
 	 * @protected
 	 */
-	shouldAcceptComponentProp(prop) {
+	shouldComponentAcceptProp(prop) {
 		return true;
 	}
 
