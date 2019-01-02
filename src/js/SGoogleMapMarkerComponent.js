@@ -26,6 +26,9 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	static get defaultProps() {
 		return {
 
+			// set the unmout timeout to 0 to avoid unwanted delays when adding and removing markers
+			unmountTimeout : 0,
+
 			/**
 			 * @name 	Google Map Marker API
 			 * Support all the google map marker API properties
