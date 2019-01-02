@@ -53,7 +53,6 @@ module.exports = {
 		js : {
 			language : 'js',
 			data : `
-				import 'webcomponents.js/webcomponents-lite'
 				import SGoogleMapComponent from 'coffeekraken-s-google-map-component'
 				import SGoogleMapMarkerComponent from './dist/index'
 			`
