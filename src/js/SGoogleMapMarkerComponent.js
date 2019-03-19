@@ -52,6 +52,21 @@ export default class SGoogleMapMarkerComponent extends SGoogleMapComponentBase {
 	}
 
 	/**
+	 * Default css
+	 * @definition    SWebComponent.defaultCss
+	 * @protected
+	 */
+	static defaultCss(componentName, componentNameDash) {
+		return `
+			${componentNameDash} {
+				display: inline-block;
+				min-width: 1px;
+				min-height: 1px;
+			}
+		`
+	}
+
+	/**
 	 * Physical props
 	 * @definition 		SWebComponent.physicalProps
 	 * @protected
