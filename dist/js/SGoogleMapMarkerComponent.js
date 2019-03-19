@@ -185,6 +185,25 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 			return this._marker;
 		}
 	}], [{
+		key: 'defaultCss',
+
+
+		/**
+   * Default css
+   * @definition    SWebComponent.defaultCss
+   * @protected
+   */
+		value: function defaultCss(componentName, componentNameDash) {
+			return '\n\t\t\t' + componentNameDash + ' {\n\t\t\t\tdisplay: inline-block;\n\t\t\t\tmin-width: 1px;\n\t\t\t\tmin-height: 1px;\n\t\t\t}\n\t\t';
+		}
+
+		/**
+   * Physical props
+   * @definition 		SWebComponent.physicalProps
+   * @protected
+   */
+
+	}, {
 		key: 'defaultProps',
 
 
@@ -195,6 +214,9 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
    */
 		get: function get() {
 			return {
+
+				// set the unmout timeout to 0 to avoid unwanted delays when adding and removing markers
+				unmountTimeout: 0
 
 				/**
      * @name 	Google Map Marker API
@@ -220,13 +242,6 @@ var SGoogleMapMarkerComponent = function (_SGoogleMapComponentB) {
 				return (0, _whenAttribute2.default)(this.parentNode, 'inited');
 			}];
 		}
-
-		/**
-   * Physical props
-   * @definition 		SWebComponent.physicalProps
-   * @protected
-   */
-
 	}, {
 		key: 'physicalProps',
 		get: function get() {

@@ -12,16 +12,16 @@ Provide a nice webcomponent wrapper around the google map marker api.
 	</s-google-map-marker>
 </s-google-map>
 ```
-See more : [https://developers.google.com/maps/documentation/javascript/](https://developers.google.com/maps/documentation/javascript/)
+See : **See more** : [https://developers.google.com/maps/documentation/javascript/](https://developers.google.com/maps/documentation/javascript/)
 
-Author : Olivier Bossel <olivier.bossel@gmail.com>
+Author : Olivier Bossel [olivier.bossel@gmail.com](mailto:olivier.bossel@gmail.com)
 
 
 
 
 ## Attributes
 
-Here's the list of available attribute to set on the element.
+Here's the list of available attribute(s).
 
 ### Google Map Marker API
 
@@ -29,7 +29,7 @@ Support all the google map marker API properties
 
 Type : **{ Google.Map.Marker }**
 
-Google Map Marker Options : [https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions](https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions)
+See : **Google Map Marker Options** : [https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions](https://developers.google.com/maps/documentation/javascript/3.exp/reference#MarkerOptions)
 
 
 
